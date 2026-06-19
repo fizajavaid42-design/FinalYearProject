@@ -1,0 +1,203 @@
+/* Reuse Dashboard Layout */
+.pol-container { 
+  min-height: 100vh; 
+  background: #f0f2f5; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+/* Header - Matching your Blue Gradient */
+.pol-header { 
+  background: linear-gradient(90deg, #4e73df, #6f86ff); 
+  padding: 25px 40px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+}
+
+.pol-back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* List Items - Exactly like your "Operational Actions" rows */
+.pol-row-item { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 18px 25px; 
+  border-radius: 12px; 
+  border: 1.5px solid #eee; 
+  background: #fafafa; 
+  margin-bottom: 12px;
+  cursor: pointer; 
+  transition: 0.3s; 
+}
+
+.pol-row-item:hover { 
+  border-color: #4e73df; 
+  background: #f4f7ff; 
+  transform: translateX(8px); 
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 12px; 
+  border-radius: 20px; 
+  font-size: 11px; 
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bg-green { 
+  background: #dcfce7; 
+  color: #166534; 
+  border: 1px solid #bbf7d0;
+}
+
+.bg-orange { 
+  background: #fff7ed; 
+  color: #9a3412; 
+  border: 1px solid #ffedd5;
+}
+
+.pr-loading {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Text Truncation for Description */
+.row-subtext {
+  font-size: 13px; 
+  color: #777; 
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+/* Details Specific Styles */
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.detail-info-row {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.detail-label {
+  width: 130px;
+  font-weight: 700;
+  color: #4e73df;
+  font-size: 14px;
+}
+
+.detail-value {
+  flex: 1;
+  color: #333;
+  font-size: 14px;
+}
+
+.status-text {
+  font-weight: 800;
+  color: #f6993f; /* Orange for pending */
+  text-transform: uppercase;
+}
+
+/* Action Footer */
+.detail-action-footer {
+  margin-top: 40px;
+}
+
+.mark-recovered-btn {
+  width: 100%;
+  background: #1cc88a; /* Green success color */
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mark-recovered-btn:hover {
+  background: #17a673;
+  transform: translateY(-2px);
+}
+
+.recovered-success-msg {
+  background: #dcfce7;
+  color: #166534;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 800;
+  border: 1px solid #bbf7d0;
+}
+
+.pol-row-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* existing styles */
+}
+
+.row-right {
+  text-align: right;
+  margin-right: 15px;
+}
+
+.row-location {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.row-date {
+  font-size: 0.75rem;
+  color: #999;
+}
+.detail-action-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.mark-recovered-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mark-recovered-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.recovered-success-msg {
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+}

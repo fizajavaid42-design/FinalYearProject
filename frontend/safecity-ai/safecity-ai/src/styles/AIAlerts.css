@@ -1,0 +1,339 @@
+/* AI Alerts List Page Styles - BLUE THEME MATCH */
+
+.ai-alerts-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.ai-alerts-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ai-alerts-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.ai-alerts-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.ai-alerts-header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ai-alerts-logo-white {
+  background: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-alerts-logo-white img {
+  width: 30px;
+  height: 30px;
+}
+
+.ai-alerts-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.ai-alerts-subtitle-header {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Main Wrapper */
+.ai-alerts-main-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+/* Loader */
+.ai-alerts-loader {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.ai-alerts-spinner {
+  width: 45px;
+  height: 45px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #4e73df;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.ai-alerts-error {
+  text-align: center;
+  padding: 50px;
+  background: white;
+  border-radius: 20px;
+  color: #f44336;
+  font-size: 0.95rem;
+}
+
+/* Empty State */
+.ai-alerts-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ai-alerts-empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.ai-alerts-empty p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Alerts List */
+.ai-alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card */
+.ai-alerts-card {
+  background: white;
+  border-radius: 20px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+}
+
+.ai-alerts-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #4e73df;
+  border-left: 4px solid #4e73df;
+}
+
+.ai-alerts-card-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+/* LEFT SIDE ICON - BLUE THEME MATCH (Same as header gradient) */
+.ai-alerts-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #cad1e7, #e5e9ff) !important;
+  box-shadow: 0 4px 10px rgba(234, 236, 243, 0.3);
+}
+
+.ai-alerts-icon span {
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+  color: white !important;
+}
+
+.ai-alerts-card:hover .ai-alerts-icon {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #3a5fcc, #5a73f0) !important;
+  box-shadow: 0 6px 14px rgba(78, 115, 223, 0.4);
+}
+
+.ai-alerts-info {
+  flex: 1;
+}
+
+.ai-alerts-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-alerts-badge {
+  display: inline-block;
+  background: #e8f0fe;
+  color: #4e73df;
+  font-size: 11px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.ai-alerts-subtitle {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.ai-alerts-time {
+  font-size: 12px;
+  color: #4e73df;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-alerts-time::before {
+  content: "🕐";
+  font-size: 11px;
+  color: #888;
+}
+
+/* Right side arrow */
+.ai-alerts-arrow {
+  font-size: 24px;
+  font-weight: 600;
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+
+.ai-alerts-card:hover .ai-alerts-arrow {
+  color: #4e73df;
+  transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ai-alerts-header {
+    padding: 12px 15px;
+  }
+  
+  .ai-alerts-title {
+    font-size: 1.2rem;
+  }
+  
+  .ai-alerts-main-wrapper {
+    padding: 15px;
+  }
+  
+  .ai-alerts-card {
+    padding: 14px 16px;
+  }
+  
+  .ai-alerts-icon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .ai-alerts-icon span {
+    font-size: 24px;
+  }
+  
+  .ai-alerts-arrow {
+    font-size: 20px;
+  }
+}
+
+/* Avatar/Circle Icon (Flutter jaisa) */
+.ai-alerts-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.ai-alerts-card:hover .ai-alerts-avatar {
+  transform: scale(1.05);
+}
+
+/* Report Type Badge */
+.ai-alerts-type-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* Title Row */
+.ai-alerts-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Subtitle */
+.ai-alerts-subtitle {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* Time */
+.ai-alerts-time {
+  font-size: 11px;
+  color: #4e73df;
+  font-weight: 500;
+}

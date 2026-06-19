@@ -1,0 +1,310 @@
+/* ─── 1. GLOBAL WRAPPER ─── */
+.signup-full-page {
+  width: 100%;
+  min-height: 100vh;        /* ✅ height: 100vh → min-height: 100vh */
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */   /* ✅ REMOVE this line */
+}
+
+/* ─── 2. HEADER (Dashboard Style) ─── */
+.signup-header-sync {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 12px 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-center-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-white-circle {
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.logo-white-circle img {
+  width: 30px;
+  height: 30px;
+}
+
+.header-title-text {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* ─── 3. MAIN CONTENT (Split View) ─── */
+.signup-main-content {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+/* Left Side: Branding/Image Area */
+.signup-main-content::before {
+  content: "";
+  flex: 1.2;
+  background: linear-gradient(rgba(78, 115, 223, 0.7), rgba(26, 35, 126, 0.8)), 
+              url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+
+/* Right Side: Form Container - CHOTA KIYA */
+.signup-form-container {
+  flex: 0.9;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* ✅ center → flex-start (tall content cut nahi hoga) */
+  padding: 40px 5%;              /* ✅ 0 5% → 40px 5% (top/bottom breathing room) */
+  min-width: 380px;
+  /* overflow-y: auto; */        /* ✅ REMOVE — ab pura page scroll hoga */
+}
+
+/* ─── 4. FORM ELEMENTS - CHOTE KIYE ─── */
+.form-head-section {
+  margin-bottom: 20px;
+}
+
+.form-head-section h2 {
+  font-size: 1.8rem;
+  color: #1a237e;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.form-head-section p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.signup-actual-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.signup-input-group {
+  margin-bottom: 12px;
+}
+
+.signup-input-group label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  background: #f4f7ff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 2px 15px;
+  transition: 0.3s;
+}
+
+.input-with-icon:focus-within {
+  border-color: #4e73df;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+.input-with-icon input,
+.input-with-icon select {
+  border: none;
+  background: transparent;
+  padding: 10px 0;
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem;
+  color: #333;
+  font-family: inherit;
+}
+
+.input-with-icon select {
+  cursor: pointer;
+}
+
+.icon-span {
+  font-size: 1rem;
+  color: #4e73df;
+  padding-right: 10px;
+}
+
+/* Two Column Row for Password */
+.signup-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.signup-input-group.half {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Upload Input Style */
+.upload-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  flex-wrap: wrap;
+}
+
+.file-name-display {
+  flex: 1;
+  font-size: 0.8rem;
+  color: #666;
+  padding: 8px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upload-btn-signup {
+  background: #4e73df;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.upload-btn-signup:hover {
+  background: #2e5cbf;
+}
+
+/* ─── 5. BUTTONS & LINKS - CHOTE KIYE ─── */
+.signup-submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.signup-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
+}
+
+.signup-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.signup-footer-links {
+  margin-top: 15px;
+  color: #555;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.signup-footer-links span {
+  color: #4e73df;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.signup-footer-links span:hover {
+  text-decoration: underline;
+}
+
+/* Small Hint Text */
+.form-hint {
+  display: block;
+  color: #888;
+  font-size: 0.7rem;
+  margin-top: 3px;
+}
+
+/* Scrollbar */
+.signup-form-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.signup-form-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* ─── 6. RESPONSIVENESS ─── */
+@media (max-width: 1000px) {
+  .signup-main-content::before {
+    display: none;
+  }
+  .signup-form-container {
+    padding: 30px;
+    align-items: center;
+    text-align: center;
+    min-width: auto;
+    flex: 1;
+  }
+  .form-head-section {
+    text-align: center;
+  }
+  .signup-input-group {
+    text-align: left;
+  }
+  .signup-footer-links {
+    text-align: center;
+  }
+  .signup-actual-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .signup-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .upload-input {
+    flex-wrap: wrap;
+  }
+  
+  .file-name-display {
+    width: 100%;
+    padding: 8px 0;
+  }
+  
+  .upload-btn-signup {
+    width: 100%;
+  }
+}
+
+
+

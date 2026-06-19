@@ -1,0 +1,341 @@
+/* PoliceStation.css */
+
+.ps-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 50px;
+}
+
+/* Header */
+.ps-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ps-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ps-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.ps-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.ps-header-text h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ps-header-text p {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+}
+
+/* Form */
+.ps-form {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Cards */
+.ps-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: box-shadow 0.3s ease;
+}
+
+.ps-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ps-card-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #eef2f6;
+}
+
+.ps-card-icon {
+  font-size: 1.8rem;
+}
+
+.ps-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.ps-subtitle-text {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-top: 4px;
+}
+
+/* Input Group */
+.input-group {
+  width: 100%;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #4e73df;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+/* Search Input */
+.ps-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.ps-search-input-wrapper:focus-within {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+.ps-search-icon {
+  font-size: 16px;
+  color: #999;
+  margin-right: 10px;
+}
+
+.ps-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+.ps-search-input::placeholder {
+  color: #bbb;
+}
+
+.ps-clear-search {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+  padding: 0 8px;
+  transition: color 0.2s;
+}
+
+.ps-clear-search:hover {
+  color: #f44336;
+}
+
+/* List Container */
+.ps-list-container {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+/* Selection Items */
+.ps-selection-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.ps-selection-item:last-child {
+  border-bottom: none;
+}
+
+.ps-selection-item:hover {
+  background: #eef2ff;
+}
+
+.ps-selection-item.active {
+  background: #e8f0fe;
+}
+
+/* Checkbox */
+.ps-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.ps-checkbox.checked {
+  background: #4e73df;
+  border-color: #4e73df;
+}
+
+/* Avatar */
+.ps-avatar {
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #4e73df, #6f86ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+
+/* Item Info */
+.ps-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ps-main-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.ps-sub-text {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* No Results */
+.ps-no-results {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+  font-size: 13px;
+}
+
+/* Selected Count */
+.ps-selected-count {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #4e73df;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Submit Button */
+.ps-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.ps-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+.ps-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loader */
+.loader {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #4e73df;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ps-header {
+    padding: 12px 15px;
+  }
+  
+  .ps-header-text h1 {
+    font-size: 1.2rem;
+  }
+  
+  .ps-form {
+    padding: 0 15px;
+  }
+  
+  .ps-card {
+    padding: 15px 18px;
+  }
+  
+  .ps-back-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .ps-selected-count {
+    font-size: 11px;
+  }
+}

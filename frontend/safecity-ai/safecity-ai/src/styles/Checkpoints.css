@@ -1,0 +1,228 @@
+/* Checkpoints.css - Desktop View */
+
+.cp-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.cp-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  /* Header ke baad extra margin */
+  margin-bottom: 10px;  /* ✅ Add this */
+
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cp-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cp-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.cp-header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cp-logo-white {
+  background: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cp-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cp-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Content */
+.cp-content {
+  max-width: 850px;
+  margin: 20px auto 0 auto;  /* ✅ top margin 20px (pehle 0 tha) */
+  padding: 20px 25px;        /* ✅ padding thora kam */
+}
+
+/* List */
+.cp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card */
+.cp-card {
+  background: white;
+  border-radius: 20px;
+    padding: 18px 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: all 0.3s ease;
+}
+
+.cp-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #4e73df;
+  border-left: 4px solid #4e73df;
+}
+
+.cp-card-info h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px 0;
+}
+
+.cp-card-location {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Chip Container */
+.cp-chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.cp-chip {
+  background: #f0f2f5;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.cp-chip:hover {
+  background: #e8eef5;
+  transform: translateY(-1px);
+}
+
+.cp-chip-empty {
+  background: #fff3e0;
+  color: #ff9800;
+}
+
+/* Loader */
+.cp-loader {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.cp-spinner {
+  width: 45px;
+  height: 45px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #4e73df;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.cp-empty {
+  text-align: center;
+  padding: 50px;
+  background: white;
+  border-radius: 20px;
+  color: #666;
+}
+
+/* Add Button */
+.cp-button-wrapper {
+  margin-top: 30px;
+}
+
+.cp-add-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cp-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cp-header {
+    padding: 12px 15px;
+  }
+  
+  .cp-title {
+    font-size: 1.2rem;
+  }
+  
+  .cp-content {
+    padding: 15px;
+  }
+  
+  .cp-card {
+    padding: 16px 18px;
+  }
+  
+  .cp-card-info h4 {
+    font-size: 16px;
+  }
+  
+  .cp-chip {
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+}

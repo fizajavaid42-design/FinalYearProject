@@ -1,0 +1,333 @@
+/* RegisterCheckpoint.css - Desktop View */
+
+.rc-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.rc-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rc-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.rc-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.rc-header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rc-logo-white {
+  background: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rc-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.rc-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Content */
+.rc-content {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+/* Cards */
+.rc-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: all 0.3s ease;
+}
+
+.rc-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.rc-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eef2f6;
+}
+
+/* Inputs */
+.rc-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.rc-input:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+.rc-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14px;
+  background: white;
+  outline: none;
+  cursor: pointer;
+}
+
+/* List Container */
+.rc-list-container {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+.rc-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.rc-list-item:last-child {
+  border-bottom: none;
+}
+
+.rc-list-item:hover {
+  background: #eef2ff;
+}
+
+.rc-list-item.selected {
+  background: #e8f0fe;
+}
+
+.rc-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.rc-checkbox:has(+ .rc-item-info .selected) {
+  background: #4e73df;
+  border-color: #4e73df;
+}
+
+.rc-item-info {
+  flex: 1;
+}
+
+.rc-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.rc-item-subtitle {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* No Data */
+.rc-no-data {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+  font-size: 13px;
+}
+
+/* Selected Count */
+.rc-selected-count {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #4e73df;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Summary Card */
+.rc-summary {
+  background: #f8f9fa;
+}
+
+.rc-summary-item {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.rc-summary-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Submit Button */
+.rc-submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.rc-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+.rc-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loader */
+.rc-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.rc-spinner {
+  width: 45px;
+  height: 45px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #4e73df;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rc-header {
+    padding: 12px 15px;
+  }
+  
+  .rc-title {
+    font-size: 1.2rem;
+  }
+  
+  .rc-content {
+    padding: 15px;
+  }
+  
+  .rc-card {
+    padding: 15px 18px;
+  }
+}
+/* Checkbox Styles */
+.rc-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: all 0.2s ease;
+  margin-right: 12px;
+}
+
+.rc-checkbox.checked {
+  background: #4e73df;
+  border-color: #4e73df;
+}
+
+.rc-check-tick {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* List Item */
+.rc-list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.rc-list-item:hover {
+  background: #eef2ff;
+}
+
+.rc-list-item.selected {
+  background: #e8f0fe;
+}

@@ -1,0 +1,251 @@
+/* AddCheckpoint.css - Desktop View */
+
+.acp-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.acp-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.acp-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.acp-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.acp-header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.acp-logo-white {
+  background: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.acp-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.acp-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Content */
+.acp-content {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 30px 25px;
+}
+
+/* Cards */
+.acp-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: all 0.3s ease;
+}
+
+.acp-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.acp-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.acp-card-icon {
+  font-size: 24px;
+}
+
+.acp-card-title h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.acp-divider {
+  height: 1px;
+  background: #eef2f6;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.acp-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px #e2e8f0;
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.acp-input:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+.acp-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.acp-select:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+/* Camera Grid */
+.acp-camera-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.acp-camera-btn {
+  background: #f0f2f5;
+  border: 1.5px solid transparent;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.acp-camera-btn:hover {
+  background: #e8eef5;
+  transform: translateY(-1px);
+}
+
+.acp-camera-btn.selected {
+  background: #e8f0fe;
+  border-color: #4e73df;
+  color: #4e73df;
+  font-weight: 600;
+}
+
+.acp-no-cameras {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+  font-size: 14px;
+}
+
+.acp-selected-count {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #4e73df;
+  font-weight: 500;
+}
+
+/* Submit Button */
+.acp-btn-container {
+  margin-top: 10px;
+}
+
+.acp-submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.acp-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+.acp-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .acp-header {
+    padding: 12px 15px;
+  }
+  
+  .acp-title {
+    font-size: 1.2rem;
+  }
+  
+  .acp-content {
+    padding: 20px 15px;
+  }
+  
+  .acp-card {
+    padding: 18px 20px;
+  }
+  
+  .acp-camera-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .acp-card-title h3 {
+    font-size: 16px;
+  }
+}

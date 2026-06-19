@@ -1,0 +1,165 @@
+/* Background wrapper to center the card on desktop */
+.full-screen-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligned to top */
+  padding: 40px 20px;
+}
+
+/* Large Card Layout */
+.splash-card-desktop {
+  width: 100%;
+  max-width: 1100px;
+  background: white;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+}
+
+/* Header with your Signature Gradient */
+.splash-header-gradient {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.nav-signup-btn {
+  background: #02428b;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hero Content (The Grey/Image area) */
+.hero-section {
+  background-color: #d9d9d9; /* Default color if no image */
+  background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(255, 255, 255, 0.85); /* Light glass effect */
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 800px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.hero-title {
+  font-family: 'Georgia', serif; /* Cursive/Elegant feel */
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #1a202c;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #4a5568;
+}
+
+/* Features Styling */
+.features-grid-container {
+  padding: 60px 50px;
+  text-align: center;
+}
+
+.features-main-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 50px;
+}
+
+.features-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+  gap: 30px;
+}
+
+.feature-card {
+  background: #f8fafc;
+  padding: 40px 30px;
+  border-radius: 30px;
+  transition: 0.3s;
+  border: 1px solid #edf2f7;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.feature-icon-box {
+  font-size: 50px;
+  margin-bottom: 25px;
+  display: inline-block;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #718096;
+  line-height: 1.6;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+  .features-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.logo-container-white {
+  background: white;        /* Background white */
+  border-radius: 50%;       /* Circle shape */
+  padding: 10px;            /* Logo ke charon taraf space */
+  display: flex;            /* Center karne ke liye */
+  align-items: center;
+  justify-content: center;
+  width: 80px;             /* Logo size (100) + padding */
+  height: 80px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Halka sa shadow professional look ke liye */
+}

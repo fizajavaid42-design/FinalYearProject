@@ -1,0 +1,166 @@
+/* Container - Expanded for Web */
+.tr-container.web-view {
+  min-height: 100vh;
+  background: #f0f2f5;
+  max-width: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header - Sync with Theft Screen */
+.tr-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.tr-back-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.tr-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Body & Layout - White Card */
+.tr-body.web-layout {
+  max-width: 1000px; /* Centered form like theft report */
+  width: 95%;
+  margin: 30px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Two Column Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Side-by-side columns */
+  gap: 40px;
+}
+
+.tr-section-title { 
+  font-size: 16px; 
+  font-weight: 700; 
+  color: #1a1a2e; 
+  margin-bottom: 4px; 
+}
+
+.tr-section-sub { 
+  font-size: 13px; 
+  color: #64748b; 
+  margin-bottom: 14px; 
+}
+
+/* Field Styles */
+.tr-field { 
+  display: flex; 
+  flex-direction: column; 
+  margin-bottom: 18px; 
+}
+
+.tr-field label { 
+  font-size: 13px; 
+  font-weight: 600; 
+  color: #64748b; 
+  margin-bottom: 7px; 
+}
+
+.tr-field input, .tr-field select {
+  background: #f8f9fc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.tr-field input:focus, .tr-field select:focus {
+  border-color: #4e73df;
+  background: white;
+}
+
+/* Upload Box */
+.tr-upload-label {
+  background: #f8f9fc;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.tr-upload-label:hover {
+  border-color: #4e73df;
+  color: #4e73df;
+}
+
+.file-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.file-chip-rv {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Submit Button */
+.tr-submit-btn {
+  width: 100%;
+  max-width: 320px;
+  margin: 30px auto 0;
+  background: #5c7cff;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(92,124,255,0.3);
+  display: flex;
+  justify-content: center;
+}
+
+/* Error Styling */
+.error-border { border-color: #ef4444 !important; }
+.error-text-rv { color: #ef4444; font-size: 11px; margin-top: 4px; }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .tr-header { padding: 16px 20px; }
+}

@@ -1,0 +1,176 @@
+/* ===============================
+   PAGE CONTAINER
+================================= */
+.pol-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===============================
+   HEADER (UPDATED - CLEAN)
+================================= */
+.header-gradient-rv {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 16px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* LEFT SIDE */
+.header-left-rv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* EMOJI */
+.header-emoji {
+  font-size: 22px;
+}
+
+/* TITLE */
+.main-title-rv {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* BUTTONS */
+.back-btn-rv,
+.refresh-btn-rv {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================
+   MAIN WRAPPER
+================================= */
+.pol-main-wrapper {
+  padding: 20px;
+  max-width: 850px;
+  margin: auto;
+}
+
+/* ===============================
+   SEARCH BOX
+================================= */
+.pol-search-box {
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  gap: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+.pol-search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ===============================
+   VEHICLE CARD
+================================= */
+.pol-content-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid #eef2f6;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+/* PLATE */
+.plate-number-display {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0d1b4b;
+  margin-bottom: 5px;
+}
+
+/* SUB TEXT */
+.vehicle-sub-title {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   GRID
+================================= */
+.vehicle-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.vehicle-specs-grid div {
+  font-size: 13px;
+  color: #555;
+}
+
+.vehicle-specs-grid strong {
+  color: #222;
+}
+
+/* ===============================
+   BUTTON
+================================= */
+.pol-btn-primary {
+  width: 100%;
+  margin-top: 15px;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4e73df, #224abe);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pol-btn-primary.success {
+  background: linear-gradient(90deg, #1cc88a, #13855c);
+}
+
+.pol-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+  .header-gradient-rv {
+    padding: 14px 15px;
+  }
+
+  .main-title-rv {
+    font-size: 16px;
+  }
+
+  .vehicle-specs-grid {
+    grid-template-columns: 1fr;
+  }
+}

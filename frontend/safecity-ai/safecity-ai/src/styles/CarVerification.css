@@ -1,0 +1,221 @@
+.cv-container {
+  min-height: 100vh;
+  background: white;
+  font-family: sans-serif;
+}
+
+/* ── Header (Updated to match your theme) ── */
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  /* background: rgb(82, 115, 224);  <-- Purana color */
+  background: linear-gradient(90deg, #4e73df, #6f86ff); /* Same as Dashboard */
+  color: white; 
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cv-back-btn {
+  background: rgba(255, 255, 255, 0.2); /* Glass effect for buttons */
+  border: 1px solid white;
+  font-size: 18px;
+  cursor: pointer;
+  color: white; /* Arrow white kr di */
+  padding: 4px 12px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.cv-back-btn:hover {
+  background: white;
+  color: #4e73df;
+}
+
+.cv-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white; /* Title bhi white kr diya */
+  flex: 1;
+  text-align: center;
+  margin-right: 32px;
+}
+
+
+
+/* ── Body ── */
+.cv-body {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Alerts ── */
+.cv-alert-success {
+  background: #dcfce7;
+  color: #166534;
+  border-left: 4px solid #16a34a;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cv-alert-error {
+  background: #fee2e2;
+  color: #9b1b1b;
+  border-left: 4px solid #9b1b1b;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── Loader / Empty ── */
+.cv-loader {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.cv-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #1a237e;
+  border-radius: 50%;
+  animation: cv-spin 0.7s linear infinite;
+}
+
+@keyframes cv-spin { to { transform: rotate(360deg); } }
+
+.cv-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+  color: #94a3b8;
+  font-size: 14px;
+  gap: 8px;
+}
+
+/* ── Car Label ── */
+.cv-car-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 12px 0 6px;
+}
+
+/* ── Card ── */
+.cv-card {
+  background: #f0f0f0;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.cv-car-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.cv-car-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* ── Rows ── */
+.cv-row {
+  display: flex;
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.cv-row-label {
+  width: 130px;
+  font-weight: 700;
+  color: #1a1a2e;
+  flex-shrink: 0;
+}
+
+.cv-row-value { color: #555; }
+
+/* ── Docs Row ── */
+.cv-docs-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.cv-docs-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.cv-view-btn {
+  background: #3b5bdb;
+  color: white;
+  border: none;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cv-view-btn:hover { background: #2f4bbf; }
+
+/* ── Action Row ── */
+.cv-action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cv-reject-btn,
+.cv-approve-btn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  transition: 0.2s;
+}
+
+.cv-reject-btn  { background: #b71c1c; color: white; }
+.cv-approve-btn { background: #3b5bdb; color: white; }
+
+.cv-reject-btn:hover:not(:disabled)  { background: #9b1b1b; }
+.cv-approve-btn:hover:not(:disabled) { background: #2f4bbf; }
+
+.cv-reject-btn:disabled,
+.cv-approve-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Button Spinner ── */
+.cv-btn-spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.35);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: cv-spin 0.7s linear infinite;
+  display: inline-block;
+}

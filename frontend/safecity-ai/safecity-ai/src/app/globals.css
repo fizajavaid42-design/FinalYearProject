@@ -1,0 +1,32 @@
+/* src/app/globals.css mein yeh add karo */
+
+body {
+  background: #000000; /* Black background */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Agar nahi hai to ise bhi add karo */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+/* Dashboard specific global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+}
+
+/* Ensure no mobile zoom */
+@media (max-width: 768px) {
+  body {
+    zoom: 1;
+    transform: scale(1);
+  }
+}

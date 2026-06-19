@@ -1,0 +1,360 @@
+/* Station Summary CSS */
+.ss-container {
+  min-height: 100vh;
+  background: #f4f6fa;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.ss-header {
+  background: linear-gradient(135deg, #3947e6, #596ef3);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ss-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.ss-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.ss-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Main Wrapper */
+.ss-main-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Section Title */
+.ss-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A237E;
+  margin-bottom: 12px;
+}
+
+/* My Station Card */
+.ss-my-station-card {
+  background: linear-gradient(135deg, #5f6aec, #6879eb);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.ss-station-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.ss-stats-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.ss-stats-row:last-child {
+  margin-bottom: 0;
+}
+
+.ss-stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.ss-stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.ss-stat-value.ss-pending {
+  color: #FFB74D;
+}
+
+.ss-stat-value.ss-resolved {
+  color: #81C784;
+}
+
+.ss-stat-value.ss-rejected {
+  color: #E57373;
+}
+
+.ss-stat-label {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+/* Table Styles */
+.ss-table-header {
+  display: flex;
+  background: rgba(26, 35, 126, 0.08);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #1A237E;
+}
+
+.ss-table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ss-table-row {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.ss-table-row.ss-my-station-row {
+  background: rgba(26, 35, 126, 0.05);
+  border: 1px solid rgba(26, 35, 126, 0.2);
+}
+
+/* Column Widths */
+.ss-col-station {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.ss-col-total {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  position: relative;
+}
+
+.ss-col-theft {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+}
+
+.ss-col-acc {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+}
+
+.ss-col-pending {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #9E9E9E;
+}
+
+.ss-col-pending.ss-has-pending {
+  color: #FF9800;
+  font-weight: 600;
+}
+
+/* Check Icon */
+.ss-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: #1A237E;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Bold Text */
+.ss-bold {
+  font-weight: 700;
+  color: #1A237E;
+}
+
+.ss-station-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Progress Bar */
+.ss-progress-bar-container {
+  position: relative;
+  background: #E0E0E0;
+  border-radius: 10px;
+  height: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ss-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #1A237E, #3949AB);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.ss-total-value {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+}
+
+.ss-table-row.ss-my-station-row .ss-total-value {
+  font-weight: 700;
+}
+
+/* Loader */
+.ss-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.ss-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #E0E0E0;
+  border-top-color: #1A237E;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.ss-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  padding: 20px;
+}
+
+.ss-error span {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.ss-error p {
+  color: #D32F2F;
+  margin-bottom: 16px;
+}
+
+.ss-error button {
+  background: #1A237E;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ss-main-wrapper {
+    padding: 16px;
+  }
+  
+  .ss-stat-value {
+    font-size: 20px;
+  }
+  
+  .ss-col-station {
+    flex: 2.5;
+  }
+  
+  .ss-station-name-text {
+    font-size: 10px;
+  }
+}
+.ss-header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.ss-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 0;
+  color: white;
+}
+
+/* Retry button styling */
+.ss-error button {
+  margin-top: 14px;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ss-error button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+/* Loader text */
+.ss-loader p {
+  margin-top: 12px;
+  color: #666;
+  font-size: 14px;
+}

@@ -1,0 +1,89 @@
+/* ===== LOADING PAGE ===== */
+.loading-container {
+  height: 100vh;
+  /* Dashboards wala blue gradient */
+  background: linear-gradient(135deg, #4e73df 0%, #6f86ff 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* Standardized Font */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Car Logo Image */
+.car-logo-img {
+  width: 350px; /* Thora sa optimize kiya size */
+  height: 350px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  animation: float 3s infinite ease-in-out;
+  /* Glow color white theme ke mutabiq soft rakha hai */
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+/* Text Container */
+.loading-text-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  /* Safe City White Text */
+  color: white;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.loading-subtitle {
+  font-size: 1.3rem;
+  /* Thora sa transparent white taake clean lage */
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+/* Cursor Animation */
+.cursor {
+  font-size: 3rem;
+  margin-left: 10px;
+  animation: blink 1s infinite;
+  /* Cursor color solid white */
+  color: white;
+  display: inline-block;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Extra: Background mein halka sa glow effect */
+.loading-container::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.loading-text-container, .car-logo-img {
+  z-index: 1; /* Taake text glow ke upar rahe */
+}

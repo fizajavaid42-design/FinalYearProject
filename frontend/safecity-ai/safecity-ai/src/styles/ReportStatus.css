@@ -1,0 +1,316 @@
+/* ReportStatus.css - Better UI */
+
+.rs-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.rs-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rs-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.rs-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.rs-header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rs-logo-white {
+  background: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rs-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Main Content */
+.rs-body {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+/* Sections Grid */
+.rs-sections-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid;
+  display: inline-block;
+}
+
+.theft-title {
+  color: #dc3545;
+  border-bottom-color: #dc3545;
+}
+
+.accident-title {
+  color: #ff9800;
+  border-bottom-color: #ff9800;
+}
+
+/* Cards */
+.rs-card {
+  background: white;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: all 0.3s ease;
+}
+
+.rs-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rs-card-recovered {
+  opacity: 0.85;
+  background: #f8f9fa;
+}
+
+/* Card Header */
+.rs-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.rs-card-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rs-type-icon {
+  font-size: 20px;
+}
+
+.rs-type-text {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.rs-type-id {
+  font-size: 12px;
+  color: #4e73df;
+  background: #e8f0fe;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Status Badges */
+.rs-badge {
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rs-badge-pending {
+  background: #fff3e0;
+  color: #ff9800;
+  border: 1px solid #ffe0b2;
+}
+
+.rs-badge-recovered {
+  background: #e8f5e9;
+  color: #4caf50;
+  border: 1px solid #c8e6c9;
+}
+
+.rs-badge-rejected {
+  background: #ffebee;
+  color: #f44336;
+  border: 1px solid #ffcdd2;
+}
+
+.rs-badge-resolved {
+  background: #e0f7fa;
+  color: #00bcd4;
+  border: 1px solid #b2ebf2;
+}
+
+/* Vehicle Info */
+.rs-vehicle-info {
+  padding: 12px 20px;
+  background: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.rs-vehicle-plate {
+  font-weight: 700;
+  color: #1a237e;
+  background: #e8f0fe;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.rs-vehicle-model {
+  font-size: 13px;
+  color: #555;
+}
+
+.rs-vehicle-type {
+  font-size: 12px;
+  color: #888;
+  background: #f0f2f5;
+  padding: 2px 8px;
+  border-radius: 15px;
+}
+
+/* Description */
+.rs-description {
+  padding: 16px 20px;
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  border-bottom: 1px solid #eef2f6;
+}
+
+/* Footer */
+.rs-card-footer {
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  background: #fafafa;
+}
+
+.rs-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #777;
+}
+
+.rs-footer-icon {
+  font-size: 14px;
+}
+
+/* Loader */
+.rs-loader {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.rs-spinner {
+  width: 45px;
+  height: 45px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #4e73df;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.rs-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.rs-empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.rs-empty p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rs-header {
+    padding: 12px 15px;
+  }
+  
+  .rs-title {
+    font-size: 1.2rem;
+  }
+  
+  .rs-body {
+    padding: 15px;
+  }
+  
+  .rs-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .rs-card-footer {
+    flex-direction: column;
+  }
+}

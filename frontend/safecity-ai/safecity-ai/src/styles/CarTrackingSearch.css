@@ -1,0 +1,394 @@
+/* CarTrackingSearch.css - Checkpoints Theme */
+
+/* ===== SCREEN ===== */
+.cts-screen {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== HEADER ===== */
+.cts-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  margin-bottom: 10px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cts-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cts-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.cts-header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.cts-header-center h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cts-header-sub {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ===== BODY ===== */
+.cts-body {
+  max-width: 850px;
+  margin: 20px auto 0 auto;
+  padding: 20px 25px;
+}
+
+/* ===== CARD (base) ===== */
+.cts-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  transition: all 0.3s ease;
+}
+
+.cts-search-card {
+  text-align: center;
+}
+
+/* ===== SEARCH ICON CIRCLE ===== */
+.cts-search-icon-circle {
+  width: 64px;
+  height: 64px;
+  background: rgba(78, 115, 223, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 28px;
+}
+
+.cts-card-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 18px;
+}
+
+/* ===== SEARCH FORM ===== */
+.cts-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cts-search-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e3e6f0;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #333;
+  background: #f8f9fc;
+  outline: none;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+.cts-search-input::placeholder {
+  color: #aaa;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+.cts-search-input:focus {
+  border-color: #4e73df;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.12);
+}
+
+/* ===== SEARCH BUTTON ===== */
+.cts-search-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cts-search-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+.cts-search-btn:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.cts-btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+/* ===== ERROR BOX ===== */
+.cts-error-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #fff5f5;
+  border: 1px solid #ffcdd2;
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+.cts-error-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.cts-error-text {
+  flex: 1;
+  color: #c62828;
+  font-size: 13px;
+}
+
+.cts-error-close {
+  background: none;
+  border: none;
+  color: #c62828;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.cts-error-close:hover {
+  background: rgba(198, 40, 40, 0.08);
+}
+
+/* ===== EMPTY & INITIAL STATE ===== */
+.cts-empty-state,
+.cts-initial-state {
+  text-align: center;
+  padding: 50px 20px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #eef2f6;
+  margin-top: 20px;
+}
+
+.cts-empty-icon,
+.cts-initial-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.cts-empty-title,
+.cts-initial-title {
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.cts-empty-text,
+.cts-initial-text {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ===== RESULTS ===== */
+.cts-results-section {
+  margin-top: 20px;
+}
+
+.cts-results-count {
+  font-weight: 600;
+  color: #4e73df;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.cts-cars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== CAR CARD ===== */
+.cts-car-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cts-car-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #4e73df;
+}
+
+.cts-car-icon-box {
+  width: 48px;
+  height: 48px;
+  background: rgba(78, 115, 223, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-right: 14px;
+}
+
+.cts-car-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cts-car-name {
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+
+.cts-car-plate {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 2px;
+}
+
+.cts-car-location {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.cts-car-meta {
+  text-align: right;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-left: 10px;
+}
+
+.cts-detection-count {
+  background: #f0f2f5;
+  padding: 4px 12px;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #4e73df;
+  font-size: 12px;
+}
+
+.cts-chevron {
+  font-size: 22px;
+  color: #ccc;
+  transition: all 0.2s;
+}
+
+.cts-car-card:hover .cts-chevron {
+  color: #4e73df;
+  transform: translateX(3px);
+}
+
+/* ===== SPIN KEYFRAME ===== */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .cts-header {
+    padding: 12px 15px;
+  }
+
+  .cts-header-center h1 {
+    font-size: 1.2rem;
+  }
+
+  .cts-body {
+    padding: 15px;
+  }
+
+  .cts-card {
+    padding: 20px;
+  }
+
+  .cts-car-card {
+    padding: 14px 16px;
+  }
+
+  .cts-car-icon-box {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+    margin-right: 12px;
+  }
+
+  .cts-car-name {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,136 @@
+/* Container - Expanded for Web */
+.tr-container.web-view {
+  min-height: 100vh;
+  background: #f0f2f5;
+  max-width: 100%; /* Mobile ke bajaye full width */
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Header - Exactly your original gradient */
+.tr-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 50px; /* Increased padding for web */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tr-back-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.tr-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Body & Layout */
+.tr-body.web-layout {
+  max-width: 1000px; /* Centered form on web */
+  margin: 30px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Side-by-side columns */
+  gap: 40px;
+}
+
+/* Original Field Styles */
+.tr-section-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.tr-section-sub { font-size: 13px; color: #64748b; margin-bottom: 14px; }
+
+.tr-field { display: flex; flex-direction: column; margin-bottom: 16px; }
+.tr-field label { font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 7px; }
+
+.tr-field input, .tr-field textarea, .tr-select-wrap select {
+  background: #f8f9fc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+}
+
+.tr-field textarea { min-height: 120px; }
+
+/* Car Info Box - Original Style */
+.tr-car-info {
+  background: #f8f9fc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.tr-type-tag {
+  display: inline-block;
+  background: #eef2ff;
+  color: #3b5bdb;
+  border: 1px solid #c7d2fe;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 700;
+}
+
+/* Submit Button - Exactly your style */
+.tr-submit-btn {
+  width: 100%;
+  max-width: 300px; /* Controlled width for web */
+  margin: 20px auto 0;
+  background: #5c7cff;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(92,124,255,0.3);
+  display: flex;
+  justify-content: center;
+}
+
+/* Loader & Spinner */
+.tr-spinner {
+  width: 20px; height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: tr-spin 0.7s linear infinite;
+}
+
+@keyframes tr-spin { to { transform: rotate(360deg); } }
+
+/* Snack Bar */
+.tr-snack {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  padding: 12px 24px; border-radius: 20px; color: white; z-index: 999;
+}
+.tr-snack.success { background: #166534; }
+.tr-snack.error { background: #991b1b; }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .tr-header { padding: 16px 20px; }
+}

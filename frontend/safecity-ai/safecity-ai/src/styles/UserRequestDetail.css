@@ -1,0 +1,201 @@
+/* ── Container ── */
+.urd-container {
+  min-height: 100vh;
+  background: #f0f2f5;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 50px;
+}
+
+/* ── Header (Safe City Theme) ── */
+.urd-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.urd-back-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid white;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.urd-header-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* ── Main Layout (Desktop Focused) ── */
+.urd-main-content {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Profile Card ── */
+.urd-profile-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.urd-avatar-large {
+  width: 80px;
+  height: 80px;
+  background: #f0f3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  border: 3px solid #4e73df;
+}
+
+.urd-profile-info h2 {
+  margin: 0 0 5px;
+  color: #1a1a2e;
+}
+
+.urd-role-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.urd-status-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #475569;
+  margin-top: 8px;
+}
+
+/* ── Details Section ── */
+.urd-details-section, .urd-docs-section {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.section-label {
+  font-size: 13px;
+  color: #aaa;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.urd-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.urd-detail-row:last-child { border-bottom: none; }
+
+.row-label-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row-icon { font-size: 1.2rem; }
+
+.row-label { color: #777; font-size: 14px; }
+
+.row-value {
+  font-weight: 700;
+  color: #1a1a2e;
+  font-size: 14px;
+}
+
+/* ── Documents Grid ── */
+.urd-docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.urd-doc-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8faff;
+  border: 1px solid #eef2ff;
+  border-radius: 12px;
+}
+
+.doc-icon { font-size: 2rem; }
+.doc-name { font-weight: 700; font-size: 14px; margin: 0; }
+.doc-view-link {
+  background: none;
+  border: none;
+  color: #4e73df;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* ── Action Footer ── */
+.urd-action-footer {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.urd-reject-btn, .urd-approve-btn {
+  flex: 1;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.urd-reject-btn {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.urd-approve-btn {
+  background: #4e73df;
+  color: white;
+}
+
+.urd-approve-btn:hover { background: #2f4bbf; transform: translateY(-2px); }
+.urd-reject-btn:hover { background: #fecaca; transform: translateY(-2px); }
+
+/* ── Loader ── */
+.urd-loader { display: flex; justify-content: center; padding: 100px; }
+.urd-spinner { 
+  width: 40px; height: 40px; border: 4px solid #f3f3f3; 
+  border-top: 4px solid #4e73df; border-radius: 50%; 
+  animation: spin 1s linear infinite; 
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+

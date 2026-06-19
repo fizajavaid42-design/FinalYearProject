@@ -1,0 +1,229 @@
+/* AddCamera.css - Desktop View */
+
+.add-cam-container {
+  min-height: 100vh;
+  background: #f4f7fe;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.add-cam-header {
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-cam-back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.add-cam-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.add-cam-header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.add-cam-logo-white {
+  background: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-cam-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.add-cam-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Form Card */
+.add-cam-card {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 24px;
+  padding: 32px 36px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef2f6;
+}
+
+/* Form Groups */
+.add-cam-form-group {
+  margin-bottom: 28px;
+}
+
+.add-cam-form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Select */
+.add-cam-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.add-cam-select:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+/* Input */
+.add-cam-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.add-cam-input:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+/* Direction Chips */
+.add-cam-direction-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.add-cam-dir-chip {
+  background: #f0f2f5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-cam-dir-chip:hover {
+  background: #e0e4e8;
+  transform: translateY(-1px);
+}
+
+.add-cam-dir-chip.active {
+  background: #4e73df;
+  color: white;
+  box-shadow: 0 2px 8px rgba(78, 115, 223, 0.3);
+}
+
+/* Button */
+.add-cam-btn-wrapper {
+  margin-top: 20px;
+}
+
+.add-cam-submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4e73df, #6f86ff);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-cam-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(78, 115, 223, 0.3);
+}
+
+.add-cam-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Animation */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-cam-header {
+    padding: 12px 15px;
+  }
+  
+  .add-cam-title {
+    font-size: 1.2rem;
+  }
+  
+  .add-cam-card {
+    margin: 20px;
+    padding: 24px 20px;
+  }
+  
+  .add-cam-direction-chips {
+    gap: 8px;
+  }
+  
+  .add-cam-dir-chip {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
