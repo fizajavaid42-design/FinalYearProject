@@ -143,5 +143,10 @@ Open-Source Libraries: YOLOv8, FastAPI, Next.js, Flutter.
 For any queries, feel free to reach out:
 
 Fiza Javaid – fizajavaid42@gmail.com
+
+
+
+
+
 # Start backend server
 uvicorn main:app --reload
