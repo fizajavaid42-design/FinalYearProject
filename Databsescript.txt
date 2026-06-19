@@ -1,0 +1,850 @@
+USE [master]
+GO
+/****** Object:  Database [FYPM]    Script Date: 17/05/2026 5:54:55 pm ******/
+CREATE DATABASE [FYPPASS]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'FYPPASS', FILENAME =N'E:\sql\FYPPASS.mdf', SIZE = 73728KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'FYPPASS_log', FILENAME = N'E:\sql\FYPPASS_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [FYPPASS] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [FYPPASS].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [FYPPASS] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [FYPPASS] SET ANSI_NULLS OFF 
+GO 
+ALTER DATABASE [FYPPASS] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [FYPPASS] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [FYPPASS] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [FYPPASS] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [FYPPASS] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [FYPPASS] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [FYPPASS] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [FYPPASS] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [FYPPASS] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [FYPPASS] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [FYPPASS] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [FYPPASS] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [FYPPASS] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [FYPPASS] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [FYPPASS] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [FYPPASS]  SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [FYPPASS]  SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [FYPPASS] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [FYPPASS] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [FYPPASS]  SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [FYPPASS] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [FYPPASS]  SET  MULTI_USER 
+GO
+ALTER DATABASE [FYPPASS]  SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [FYPPASS]  SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [FYPPASS]  SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [FYPPASS]  SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [FYPPASS]  SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [FYPPASS]  SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [FYPPASS]  SET QUERY_STORE = ON
+GO
+ALTER DATABASE [FYPPASS]  SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [FYPPASS] 
+GO
+/****** Object:  Table [dbo].[AIAlert]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AIAlert](
+	[alert_id] [int] IDENTITY(1,1) NOT NULL,
+	[vehicle_id] [int] NULL,
+	[camera_id] [int] NULL,
+	[detection_id] [int] NULL,
+	[alert_time] [datetime] NULL,
+	[matched_on] [varchar](50) NULL,
+	[report_type] [varchar](50) NULL,
+	[report_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[alert_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CameraGraph]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CameraGraph](
+	[graph_id] [int] IDENTITY(1,1) NOT NULL,
+	[from_camera_id] [int] NOT NULL,
+	[to_camera_id] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[graph_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_CameraEdge] UNIQUE NONCLUSTERED 
+(
+	[from_camera_id] ASC,
+	[to_camera_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CCTVCamera]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CCTVCamera](
+	[camera_id] [int] IDENTITY(1,1) NOT NULL,
+	[place_id] [int] NULL,
+	[direction] [varchar](50) NULL,
+	[status] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[camera_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CheckPoint]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CheckPoint](
+	[checkpoint_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](120) NULL,
+	[place_id] [int] NULL,
+	[created_at] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[checkpoint_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CheckPointCamera]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CheckPointCamera](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[checkpoint_id] [int] NOT NULL,
+	[camera_id] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_CheckPointCamera] UNIQUE NONCLUSTERED 
+(
+	[checkpoint_id] ASC,
+	[camera_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CheckPointGraph]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CheckPointGraph](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[from_checkpoint_id] [int] NOT NULL,
+	[to_checkpoint_id] [int] NOT NULL,
+	[order] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_CheckPointGraph] UNIQUE NONCLUSTERED 
+(
+	[from_checkpoint_id] ASC,
+	[to_checkpoint_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CheckPointOfficer]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CheckPointOfficer](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[checkpoint_id] [int] NOT NULL,
+	[user_id] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_CheckPointOfficer] UNIQUE NONCLUSTERED 
+(
+	[checkpoint_id] ASC,
+	[user_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ForwardedAlert]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ForwardedAlert](
+	[forward_id] [int] IDENTITY(1,1) NOT NULL,
+	[alert_id] [int] NULL,
+	[from_checkpoint_id] [int] NULL,
+	[to_checkpoint_id] [int] NULL,
+	[forwarded_by] [int] NULL,
+	[depth] [int] NULL,
+	[forwarded_at] [datetime] NULL,
+	[status] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[forward_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Legal_Vehicles]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Legal_Vehicles](
+	[legal_vehicle_id] [int] IDENTITY(1,1) NOT NULL,
+	[no_plate] [varchar](50) NULL,
+	[company] [varchar](120) NULL,
+	[model] [varchar](100) NULL,
+	[generation] [varchar](50) NULL,
+	[car_year] [int] NULL,
+	[color] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[legal_vehicle_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[no_plate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Place]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Place](
+	[place_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](120) NULL,
+	[city] [varchar](100) NULL,
+	[latitude] [varchar](50) NULL,
+	[longitude] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[place_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UC_PlaceName] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PlaceGeoFencePoint]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PlaceGeoFencePoint](
+	[point_id] [int] IDENTITY(1,1) NOT NULL,
+	[place_id] [int] NULL,
+	[latitude] [varchar](50) NULL,
+	[longitude] [varchar](50) NULL,
+	[point_order] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[point_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PoliceStation]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PoliceStation](
+	[station_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](150) NOT NULL,
+	[place_id] [int] NULL,
+	[created_at] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[station_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PoliceStationOfficer]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PoliceStationOfficer](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[station_id] [int] NOT NULL,
+	[user_id] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_Officer] UNIQUE NONCLUSTERED 
+(
+	[user_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_StationOfficer] UNIQUE NONCLUSTERED 
+(
+	[station_id] ASC,
+	[user_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PoliceStationPlace]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PoliceStationPlace](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[station_id] [int] NOT NULL,
+	[place_id] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_StationPlace] UNIQUE NONCLUSTERED 
+(
+	[station_id] ASC,
+	[place_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Recovery]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Recovery](
+	[recovery_id] [int] IDENTITY(1,1) NOT NULL,
+	[report_id] [int] NULL,
+	[checkpoint_id] [int] NULL,
+	[recovery_date] [datetime] NULL,
+	[user_id] [int] NULL,
+	[police_station_id] [int] NULL,
+	[witness_report_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[recovery_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Registration]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Registration](
+	[reg_id] [int] IDENTITY(1,1) NOT NULL,
+	[user_id] [int] NULL,
+	[no_plate] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[reg_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SpeedDetection]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SpeedDetection](
+	[speed_id] [int] IDENTITY(1,1) NOT NULL,
+	[video_path] [varchar](255) NULL,
+	[car_id] [int] NULL,
+	[speed_kmh] [decimal](8, 2) NULL,
+	[is_over_speed] [bit] NULL,
+	[time_A] [varchar](100) NULL,
+	[time_B] [varchar](100) NULL,
+	[time_diff_sec] [decimal](8, 3) NULL,
+	[company] [varchar](120) NULL,
+	[model] [varchar](100) NULL,
+	[generation] [varchar](50) NULL,
+	[color] [varchar](50) NULL,
+	[no_plate] [varchar](50) NULL,
+	[camera_id] [int] NULL,
+	[detection_id] [int] NULL,
+	[alert_id] [int] NULL,
+	[detected_at] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[speed_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User](
+	[user_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](100) NOT NULL,
+	[email] [varchar](120) NOT NULL,
+	[password] [varchar](100) NOT NULL,
+	[role] [varchar](50) NULL,
+	[designation] [varchar](100) NULL,
+	[approval_status] [varchar](50) NULL,
+	[contact] [nvarchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[user_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserDocument]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserDocument](
+	[document_id] [int] IDENTITY(1,1) NOT NULL,
+	[user_id] [int] NOT NULL,
+	[document_type] [varchar](100) NULL,
+	[document_path] [varchar](255) NULL,
+	[upload_date] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[document_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserReport]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserReport](
+	[user_report_id] [int] IDENTITY(1,1) NOT NULL,
+	[description] [varchar](max) NULL,
+	[status] [varchar](50) NULL,
+	[contact] [varchar](50) NULL,
+	[incident_type] [varchar](20) NULL,
+	[place_id] [int] NULL,
+	[vehicle_id] [int] NULL,
+	[date] [datetime] NULL,
+	[police_station_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[user_report_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Vehicle]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Vehicle](
+	[vehicle_id] [int] IDENTITY(1,1) NOT NULL,
+	[company] [varchar](120) NULL,
+	[model] [varchar](100) NULL,
+	[car_year] [int] NULL,
+	[import_year] [int] NULL,
+	[engine_no] [varchar](100) NULL,
+	[chassis_no] [varchar](100) NULL,
+	[color] [varchar](50) NULL,
+	[no_plate] [varchar](50) NULL,
+	[user_id] [int] NULL,
+	[approval_status] [varchar](50) NULL,
+	[reg_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[vehicle_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[engine_no] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[chassis_no] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VehicleDetections]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VehicleDetections](
+	[detection_id] [int] IDENTITY(1,1) NOT NULL,
+	[camera_id] [int] NULL,
+	[company] [varchar](120) NULL,
+	[model] [varchar](100) NULL,
+	[generation] [varchar](50) NULL,
+	[color] [varchar](50) NULL,
+	[no_plate] [varchar](50) NULL,
+	[detected_at] [datetime] NULL,
+	[image_path] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[detection_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VehicleDocument]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VehicleDocument](
+	[vehicle_document_id] [int] IDENTITY(1,1) NOT NULL,
+	[vehicle_id] [int] NULL,
+	[document_type] [varchar](100) NULL,
+	[document_path] [varchar](255) NULL,
+	[upload_date] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[vehicle_document_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VehicleHandover]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VehicleHandover](
+	[handover_id] [int] IDENTITY(1,1) NOT NULL,
+	[recovery_id] [int] NULL,
+	[police_station_id] [int] NULL,
+	[owner_cnic] [varchar](50) NULL,
+	[document_paths] [text] NULL,
+	[handover_date] [datetime] NULL,
+	[status] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[handover_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VehicleUser]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VehicleUser](
+	[vehicle_user_id] [int] IDENTITY(1,1) NOT NULL,
+	[vehicle_id] [int] NULL,
+	[new_user_id] [int] NULL,
+	[date_of_purchase] [date] NULL,
+	[status] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[vehicle_user_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[WitnessReport]    Script Date: 17/05/2026 5:54:55 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WitnessReport](
+	[witness_report_id] [int] IDENTITY(1,1) NOT NULL,
+	[car_image_path] [varchar](255) NULL,
+	[no_plate] [varchar](50) NULL,
+	[color] [varchar](50) NULL,
+	[company] [varchar](120) NULL,
+	[model] [varchar](100) NULL,
+	[description] [varchar](max) NULL,
+	[place_id] [int] NULL,
+	[user_id] [int] NULL,
+	[status] [varchar](50) NOT NULL,
+	[date] [datetime] NULL,
+	[police_station_id] [int] NULL,
+	[vehicle_type] [varchar](50) NULL,
+	[generation] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[witness_report_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Index [ix_UserReport_user_report_id]    Script Date: 17/05/2026 5:54:55 pm ******/
+CREATE NONCLUSTERED INDEX [ix_UserReport_user_report_id] ON [dbo].[UserReport]
+(
+	[user_report_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [ix_WitnessReport_witness_report_id]    Script Date: 17/05/2026 5:54:55 pm ******/
+CREATE NONCLUSTERED INDEX [ix_WitnessReport_witness_report_id] ON [dbo].[WitnessReport]
+(
+	[witness_report_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[AIAlert] ADD  DEFAULT (getdate()) FOR [alert_time]
+GO
+ALTER TABLE [dbo].[CCTVCamera] ADD  DEFAULT ('Active') FOR [status]
+GO
+ALTER TABLE [dbo].[CheckPoint] ADD  DEFAULT (getdate()) FOR [created_at]
+GO
+ALTER TABLE [dbo].[CheckPointGraph] ADD  DEFAULT ((1)) FOR [order]
+GO
+ALTER TABLE [dbo].[ForwardedAlert] ADD  DEFAULT (getdate()) FOR [forwarded_at]
+GO
+ALTER TABLE [dbo].[ForwardedAlert] ADD  DEFAULT ('Pending') FOR [status]
+GO
+ALTER TABLE [dbo].[PoliceStation] ADD  DEFAULT (getdate()) FOR [created_at]
+GO
+ALTER TABLE [dbo].[Recovery] ADD  DEFAULT (getdate()) FOR [recovery_date]
+GO
+ALTER TABLE [dbo].[SpeedDetection] ADD  DEFAULT ((0)) FOR [is_over_speed]
+GO
+ALTER TABLE [dbo].[SpeedDetection] ADD  DEFAULT (getdate()) FOR [detected_at]
+GO
+ALTER TABLE [dbo].[User] ADD  DEFAULT ('Pending') FOR [approval_status]
+GO
+ALTER TABLE [dbo].[UserDocument] ADD  DEFAULT (getdate()) FOR [upload_date]
+GO
+ALTER TABLE [dbo].[Vehicle] ADD  DEFAULT ('Pending') FOR [approval_status]
+GO
+ALTER TABLE [dbo].[VehicleDetections] ADD  DEFAULT (getdate()) FOR [detected_at]
+GO
+ALTER TABLE [dbo].[VehicleDocument] ADD  DEFAULT (getdate()) FOR [upload_date]
+GO
+ALTER TABLE [dbo].[VehicleHandover] ADD  DEFAULT (getdate()) FOR [handover_date]
+GO
+ALTER TABLE [dbo].[VehicleHandover] ADD  DEFAULT ('Pending') FOR [status]
+GO
+ALTER TABLE [dbo].[WitnessReport] ADD  DEFAULT ('Pending') FOR [status]
+GO
+ALTER TABLE [dbo].[WitnessReport] ADD  DEFAULT (getdate()) FOR [date]
+GO
+ALTER TABLE [dbo].[AIAlert]  WITH CHECK ADD FOREIGN KEY([camera_id])
+REFERENCES [dbo].[CCTVCamera] ([camera_id])
+GO
+ALTER TABLE [dbo].[AIAlert]  WITH CHECK ADD FOREIGN KEY([detection_id])
+REFERENCES [dbo].[VehicleDetections] ([detection_id])
+GO
+ALTER TABLE [dbo].[AIAlert]  WITH CHECK ADD FOREIGN KEY([vehicle_id])
+REFERENCES [dbo].[Vehicle] ([vehicle_id])
+GO
+ALTER TABLE [dbo].[CameraGraph]  WITH CHECK ADD  CONSTRAINT [FK_FromCamera] FOREIGN KEY([from_camera_id])
+REFERENCES [dbo].[CCTVCamera] ([camera_id])
+GO
+ALTER TABLE [dbo].[CameraGraph] CHECK CONSTRAINT [FK_FromCamera]
+GO
+ALTER TABLE [dbo].[CameraGraph]  WITH CHECK ADD  CONSTRAINT [FK_ToCamera] FOREIGN KEY([to_camera_id])
+REFERENCES [dbo].[CCTVCamera] ([camera_id])
+GO
+ALTER TABLE [dbo].[CameraGraph] CHECK CONSTRAINT [FK_ToCamera]
+GO
+ALTER TABLE [dbo].[CCTVCamera]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[CheckPoint]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[CheckPointCamera]  WITH CHECK ADD  CONSTRAINT [FK_CpCamera_Camera] FOREIGN KEY([camera_id])
+REFERENCES [dbo].[CCTVCamera] ([camera_id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CheckPointCamera] CHECK CONSTRAINT [FK_CpCamera_Camera]
+GO
+ALTER TABLE [dbo].[CheckPointCamera]  WITH CHECK ADD  CONSTRAINT [FK_CpCamera_CheckPoint] FOREIGN KEY([checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CheckPointCamera] CHECK CONSTRAINT [FK_CpCamera_CheckPoint]
+GO
+ALTER TABLE [dbo].[CheckPointGraph]  WITH CHECK ADD  CONSTRAINT [FK_Graph_From] FOREIGN KEY([from_checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+GO
+ALTER TABLE [dbo].[CheckPointGraph] CHECK CONSTRAINT [FK_Graph_From]
+GO
+ALTER TABLE [dbo].[CheckPointGraph]  WITH CHECK ADD  CONSTRAINT [FK_Graph_To] FOREIGN KEY([to_checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+GO
+ALTER TABLE [dbo].[CheckPointGraph] CHECK CONSTRAINT [FK_Graph_To]
+GO
+ALTER TABLE [dbo].[CheckPointOfficer]  WITH CHECK ADD  CONSTRAINT [FK_CpOfficer_CheckPoint] FOREIGN KEY([checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CheckPointOfficer] CHECK CONSTRAINT [FK_CpOfficer_CheckPoint]
+GO
+ALTER TABLE [dbo].[CheckPointOfficer]  WITH CHECK ADD  CONSTRAINT [FK_CpOfficer_User] FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CheckPointOfficer] CHECK CONSTRAINT [FK_CpOfficer_User]
+GO
+ALTER TABLE [dbo].[ForwardedAlert]  WITH CHECK ADD FOREIGN KEY([alert_id])
+REFERENCES [dbo].[AIAlert] ([alert_id])
+GO
+ALTER TABLE [dbo].[ForwardedAlert]  WITH CHECK ADD FOREIGN KEY([forwarded_by])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[ForwardedAlert]  WITH CHECK ADD FOREIGN KEY([from_checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+GO
+ALTER TABLE [dbo].[ForwardedAlert]  WITH CHECK ADD FOREIGN KEY([to_checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+GO
+ALTER TABLE [dbo].[PlaceGeoFencePoint]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[PoliceStation]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[PoliceStationOfficer]  WITH CHECK ADD FOREIGN KEY([station_id])
+REFERENCES [dbo].[PoliceStation] ([station_id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[PoliceStationOfficer]  WITH CHECK ADD FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[PoliceStationPlace]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[PoliceStationPlace]  WITH CHECK ADD FOREIGN KEY([station_id])
+REFERENCES [dbo].[PoliceStation] ([station_id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Recovery]  WITH CHECK ADD FOREIGN KEY([checkpoint_id])
+REFERENCES [dbo].[CheckPoint] ([checkpoint_id])
+GO
+ALTER TABLE [dbo].[Recovery]  WITH CHECK ADD  CONSTRAINT [FK_Recovery_PoliceStation] FOREIGN KEY([police_station_id])
+REFERENCES [dbo].[PoliceStation] ([station_id])
+GO
+ALTER TABLE [dbo].[Recovery] CHECK CONSTRAINT [FK_Recovery_PoliceStation]
+GO
+ALTER TABLE [dbo].[Recovery]  WITH CHECK ADD  CONSTRAINT [FK_Recovery_User] FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[Recovery] CHECK CONSTRAINT [FK_Recovery_User]
+GO
+ALTER TABLE [dbo].[Recovery]  WITH CHECK ADD  CONSTRAINT [FK_Recovery_UserReport] FOREIGN KEY([report_id])
+REFERENCES [dbo].[UserReport] ([user_report_id])
+GO
+ALTER TABLE [dbo].[Recovery] CHECK CONSTRAINT [FK_Recovery_UserReport]
+GO
+ALTER TABLE [dbo].[Recovery]  WITH CHECK ADD  CONSTRAINT [FK_Recovery_WitnessReport] FOREIGN KEY([witness_report_id])
+REFERENCES [dbo].[WitnessReport] ([witness_report_id])
+GO
+ALTER TABLE [dbo].[Recovery] CHECK CONSTRAINT [FK_Recovery_WitnessReport]
+GO
+ALTER TABLE [dbo].[Registration]  WITH CHECK ADD FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[SpeedDetection]  WITH CHECK ADD FOREIGN KEY([alert_id])
+REFERENCES [dbo].[AIAlert] ([alert_id])
+GO
+ALTER TABLE [dbo].[SpeedDetection]  WITH CHECK ADD FOREIGN KEY([camera_id])
+REFERENCES [dbo].[CCTVCamera] ([camera_id])
+GO
+ALTER TABLE [dbo].[SpeedDetection]  WITH CHECK ADD FOREIGN KEY([detection_id])
+REFERENCES [dbo].[VehicleDetections] ([detection_id])
+GO
+ALTER TABLE [dbo].[UserDocument]  WITH CHECK ADD FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[UserReport]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[UserReport]  WITH CHECK ADD FOREIGN KEY([vehicle_id])
+REFERENCES [dbo].[Vehicle] ([vehicle_id])
+GO
+ALTER TABLE [dbo].[UserReport]  WITH CHECK ADD  CONSTRAINT [FK_UserReport_PoliceStation] FOREIGN KEY([police_station_id])
+REFERENCES [dbo].[PoliceStation] ([station_id])
+GO
+ALTER TABLE [dbo].[UserReport] CHECK CONSTRAINT [FK_UserReport_PoliceStation]
+GO
+ALTER TABLE [dbo].[Vehicle]  WITH NOCHECK ADD FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[Vehicle]  WITH NOCHECK ADD  CONSTRAINT [FK_Vehicle_Registration] FOREIGN KEY([reg_id])
+REFERENCES [dbo].[Registration] ([reg_id])
+GO
+ALTER TABLE [dbo].[Vehicle] NOCHECK CONSTRAINT [FK_Vehicle_Registration]
+GO
+ALTER TABLE [dbo].[VehicleDetections]  WITH CHECK ADD FOREIGN KEY([camera_id])
+REFERENCES [dbo].[CCTVCamera] ([camera_id])
+GO
+ALTER TABLE [dbo].[VehicleDocument]  WITH CHECK ADD FOREIGN KEY([vehicle_id])
+REFERENCES [dbo].[Vehicle] ([vehicle_id])
+GO
+ALTER TABLE [dbo].[VehicleHandover]  WITH CHECK ADD FOREIGN KEY([police_station_id])
+REFERENCES [dbo].[PoliceStation] ([station_id])
+GO
+ALTER TABLE [dbo].[VehicleHandover]  WITH CHECK ADD FOREIGN KEY([recovery_id])
+REFERENCES [dbo].[Recovery] ([recovery_id])
+GO
+ALTER TABLE [dbo].[VehicleUser]  WITH CHECK ADD FOREIGN KEY([new_user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[VehicleUser]  WITH CHECK ADD FOREIGN KEY([vehicle_id])
+REFERENCES [dbo].[Vehicle] ([vehicle_id])
+GO
+ALTER TABLE [dbo].[WitnessReport]  WITH CHECK ADD FOREIGN KEY([place_id])
+REFERENCES [dbo].[Place] ([place_id])
+GO
+ALTER TABLE [dbo].[WitnessReport]  WITH CHECK ADD  CONSTRAINT [FK_WitnessReport_PoliceStation] FOREIGN KEY([police_station_id])
+REFERENCES [dbo].[PoliceStation] ([station_id])
+GO
+ALTER TABLE [dbo].[WitnessReport] CHECK CONSTRAINT [FK_WitnessReport_PoliceStation]
+GO
+ALTER TABLE [dbo].[WitnessReport]  WITH CHECK ADD  CONSTRAINT [FK_WitnessReport_User] FOREIGN KEY([user_id])
+REFERENCES [dbo].[User] ([user_id])
+GO
+ALTER TABLE [dbo].[WitnessReport] CHECK CONSTRAINT [FK_WitnessReport_User]
+GO
+ALTER TABLE [dbo].[CameraGraph]  WITH CHECK ADD  CONSTRAINT [CHK_NoSelfLoop] CHECK  (([from_camera_id]<>[to_camera_id]))
+GO
+ALTER TABLE [dbo].[CameraGraph] CHECK CONSTRAINT [CHK_NoSelfLoop]
+GO
+USE [master]
+GO

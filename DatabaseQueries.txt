@@ -1,0 +1,344 @@
+-----------------------PLACE
+
+insert into place (name,city,latitude,longitude)
+values
+('Saddar Terminal','Rawalpindi',33.5939, 73.0567),
+('Marrir Chowk','Rawalpindi',33.5995, 73.0626),
+('Liaqat National Bagh','Rawalpindi',33.6063, 73.0659),
+('Committee Chowk','Rawalpindi',33.6131, 73.0652),
+('Waris khan','Rawalpindi',33.6227, 73.0704),
+('Chandani Chowk','Rawalpindi',33.6298, 73.0723),
+('Rehmanabad','Rawalpindi',33.6360, 73.0748),
+('6Th Road','Rawalpindi',33.6435, 73.0780),
+('Shamsabad','Rawalpindi',33.6505, 73.0810),
+('Faizabad','Rawalpindi',33.6622, 73.0834);
+
+------------------CITIZEN
+
+-- Mariam: Password 'Mariam123' ka SHA256 hash
+-- Mariam123 ka hash: c6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Mariam Khan', 'mariam.khan@gmail.com', 'c6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5', 'CITIZEN', NULL, 'Approved', '0300-1234501');
+
+-- Usman: Password 'Usman123' ka SHA256 hash
+-- Usman123 ka hash: d7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e6
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Usman Ali', 'usman.ali@gmail.com', 'd7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e6', 'CITIZEN', NULL, 'Approved', '0300-1234502');
+
+-- Ayesha: Password 'Ayesha123' ka SHA256 hash
+-- Ayesha123 ka hash: e8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Ayesha Siddiqui', 'ayesha.siddiqui@gmail.com', 'e8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7', 'CITIZEN', NULL, 'Approved', '0300-1234503');
+
+-- Bilal: Password 'Bilal123' ka SHA256 hash
+-- Bilal123 ka hash: f9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Bilal Ahmed', 'bilal.ahmed@gmail.com', 'f9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8', 'CITIZEN', NULL, 'Approved', '0300-1234504');
+
+-- Zara: Password 'Zara123' ka SHA256 hash
+-- Zara123 ka hash: a0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+
+VALUES ('Zara Tariq', 'zara.tariq@gmail.com', 'a0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9', 'CITIZEN', NULL, 'Approved', '0300-1234505');
+
+
+
+
+
+-------------------------------CHeckpoint officer
+-- Checkpoint Officer 1: cp1@gmail.com, Password = cp1
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 1', 'cp1@gmail.com', '7e1f6a5b4c3d2e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111001');
+
+-- Checkpoint Officer 2: cp2@gmail.com, Password = cp2
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 2', 'cp2@gmail.com', '8f2a7b6c5d4e3f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111002');
+
+-- Checkpoint Officer 3: cp3@gmail.com, Password = cp3
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 3', 'cp3@gmail.com', '9a3b8c7d6e5f4a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111003');
+
+-- Checkpoint Officer 4: cp4@gmail.com, Password = cp4
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 4', 'cp4@gmail.com', '0b4c9d8e7f6a5b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111004');
+
+-- Checkpoint Officer 5: cp5@gmail.com, Password = cp5
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 5', 'cp5@gmail.com', '1c5d0e9f8a7b6c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111005');
+
+-- Checkpoint Officer 6: cp6@gmail.com, Password = cp6
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 6', 'cp6@gmail.com', '2d6e1f0a9b8c7d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111006');
+
+-- Checkpoint Officer 7: cp7@gmail.com, Password = cp7
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 7', 'cp7@gmail.com', '3e7f2a1b0c9d8e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111007');
+
+-- Checkpoint Officer 8: cp8@gmail.com, Password = cp8
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 8', 'cp8@gmail.com', '4f8a3b2c1d0e9f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111008');
+
+-- Checkpoint Officer 9: cp9@gmail.com, Password = cp9
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 9', 'cp9@gmail.com', '5a9b4c3d2e1f0a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111009');
+
+-- Checkpoint Officer 10: cp10@gmail.com, Password = cp10
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Checkpoint Officer 10', 'cp10@gmail.com', '6b0c5d4e3f2a1b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5', 'CHECKPOINT_OFFICER', 'Checkpoint Incharge', 'Approved', '0302-1111010');
+
+
+
+------------------------------Police 0fficer
+-- Police Officer 1: police1@gmail.com, Password = police1
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Police Officer 1', 'police1@gmail.com', '3a7b2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2', 'POLICE_OFFICER', 'Station House Officer', 'Approved', '0301-1234001');
+
+-- Police Officer 2: police2@gmail.com, Password = police2
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Police Officer 2', 'police2@gmail.com', '4b8c3d2e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3', 'POLICE_OFFICER', 'Station House Officer', 'Approved', '0301-1234002');
+
+-- Police Officer 3: police3@gmail.com, Password = police3
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Police Officer 3', 'police3@gmail.com', '5c9d4e3f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4', 'POLICE_OFFICER', 'Station House Officer', 'Approved', '0301-1234003');
+
+-- Police Officer 4: police4@gmail.com, Password = police4
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Police Officer 4', 'police4@gmail.com', '6d0e5f4a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5', 'POLICE_OFFICER', 'Station House Officer', 'Approved', '0301-1234004');
+
+
+
+---------------------Admin
+-- Admin 1: admin1@gmail.com, Password = admin1
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Admin User 1', 'admin1@gmail.com', '7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9', 'ADMIN', 'System Administrator', 'Approved', '0300-000001');
+
+-- Admin 2: admin2@gmail.com, Password = admin2
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Admin User 2', 'admin2@gmail.com', '8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0', 'ADMIN', 'System Administrator', 'Approved', '0300-000002');
+
+-- Admin 3: admin3@gmail.com, Password = admin3
+INSERT INTO [User] (name, email, password, role, designation, approval_status, contact)
+VALUES ('Admin User 3', 'admin3@gmail.com', '9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1', 'ADMIN', 'System Administrator', 'Approved', '0300-000003');
+
+
+----------------------------CCTV--------------------
+insert into CCTVCamera(place_id,direction,status) 
+VALUES
+(1,'Marrir Chowk','Active'),
+(2,'Liaqat National Bagh','Active'),
+(3,'Committee Chowk','Active'),
+(4,'Waris Khan','Active'),
+(5,'Chandani Chowk','Active'),
+(6,'Rehmanabad','Active'),
+(7,'6Th Road','Active'),
+(8,'Shamsabad','Active'),
+(9,'Faizabad','Active');
+
+
+INSERT INTO CCTVCamera(place_id,direction,status) 
+VALUES
+(10,'Shamsabad','Active'),
+(9,'6Th Road','Active'),
+(8,'Rehmanabad','Active'),
+(7,'Chandani Chowk','Active'),
+(6,'Waris Khan','Active'),
+(5,'Committee Chowk','Active'),
+(4,'Liaqat National Bagh','Active'),
+(3,'Marrir Chowk','Active'),
+(2,'Saddar Terminal','Active');
+
+INSERT INTO CCTVCamera(place_id, direction, status) 
+VALUES
+(10, 'Murree Road', 'Active'),
+(10, 'Zero Point', 'Active'),
+(10, 'Kashmir Highway', 'Active'),
+(10, 'Islamabad Highway', 'Active');
+
+
+
+
+
+-----------------------checkpoint
+
+INSERT INTO [CheckPoint] (name, place_id, created_at)
+VALUES
+('Saddar Terminal Checkpoint', 1, GETDATE()),
+('Marrir Chowk Checkpoint', 2, GETDATE()),
+('Liaqat National Bagh Checkpoint', 3, GETDATE()),
+('Committee Chowk Checkpoint', 4, GETDATE()),
+('Waris Khan Checkpoint', 5, GETDATE()),
+('Chandani Chowk Checkpoint', 6, GETDATE()),
+('Rehmanabad Checkpoint', 7, GETDATE()),
+('6th Road Checkpoint', 8, GETDATE()),
+('Shamsabad Checkpoint', 9, GETDATE()),
+('Faizabad Checkpoint', 10, GETDATE());
+
+--------------------------------------------checkpoint assigning to officer
+
+-- Pehle checkpoint officers ke user_ids check karo (assume cp1 to cp10 ka user_id 11 se 20 hai)
+-- Agar aapne pehle se checkpoint officers insert kar rakhe hain toh:
+
+
+INSERT INTO [CheckPointOfficer] (checkpoint_id, user_id)
+VALUES
+(1, 6),   -- Saddar Terminal Checkpoint -> user_id 6
+(2, 7),   -- Marrir Chowk Checkpoint -> user_id 7
+(3, 8),   -- Liaqat National Bagh Checkpoint -> user_id 8
+(4, 9),   -- Committee Chowk Checkpoint -> user_id 9
+(5, 10),  -- Waris Khan Checkpoint -> user_id 10
+(6, 11),  -- Chandani Chowk Checkpoint -> user_id 11
+(7, 12),  -- Rehmanabad Checkpoint -> user_id 12
+(8, 13),  -- 6th Road Checkpoint -> user_id 13
+(9, 14),  -- Shamsabad Checkpoint -> user_id 14
+(10, 15); -- Faizabad Checkpoint -> user_id 15
+----------------------------------------------
+
+
+-------------------------------------------Police Station 
+INSERT INTO [PoliceStation] (name, place_id, created_at)
+VALUES
+('Saddar Police Station', 1, GETDATE()),        -- Saddar Terminal
+('Committee Chowk Police Station', 4, GETDATE()), -- Committee Chowk
+('6th Road Police Station', 8, GETDATE()),       -- 6th Road
+('Faizabad Police Station', 10, GETDATE());      -- Faizabad
+
+----------------------------------
+
+--------------------Assign Places to Police Stations
+-- Saddar Police Station (station_id = 1) - covers Saddar Terminal aur nearby areas
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (1, 1);  -- Saddar Terminal
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (1, 2);  -- Marrir Chowk
+
+-- Committee Chowk Police Station (station_id = 2) - covers center
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (2, 3);  -- Liaqat National Bagh
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (2, 4);  -- Committee Chowk
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (2, 5);  -- Waris Khan
+
+-- 6th Road Police Station (station_id = 3) - covers middle areas
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (3, 6);  -- Chandani Chowk
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (3, 7);  -- Rehmanabad
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (3, 8);  -- 6th Road
+
+-- Faizabad Police Station (station_id = 4) - covers end areas
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (4, 9);  -- Shamsabad
+INSERT INTO [PoliceStationPlace] (station_id, place_id) VALUES (4, 10); -- Faizabad
+
+----------------------Police officer assigning
+INSERT INTO [PoliceStationOfficer] (station_id, user_id)
+VALUES
+(1, 16),   -- Saddar Police Station -> user_id 16
+(2, 17),   -- Committee Chowk Police Station -> user_id 17
+(3, 18),   -- 6th Road Police Station -> user_id 18
+(4, 19);   -- Faizabad Police Station -> user_id 19
+
+-----------------Checkpoint
+
+
+-- Forward Direction (Saddar Terminal to Faizabad)
+INSERT INTO [CheckPointGraph] (from_checkpoint_id, to_checkpoint_id, [order])
+VALUES
+(1, 2, 1),   -- Saddar Terminal -> Marrir Chowk
+(2, 3, 2),   -- Marrir Chowk -> Liaqat National Bagh
+(3, 4, 3),   -- Liaqat National Bagh -> Committee Chowk
+(4, 5, 4),   -- Committee Chowk -> Waris Khan
+(5, 6, 5),   -- Waris Khan -> Chandani Chowk
+(6, 7, 6),   -- Chandani Chowk -> Rehmanabad
+(7, 8, 7),   -- Rehmanabad -> 6th Road
+(8, 9, 8),   -- 6th Road -> Shamsabad
+(9, 10, 9);  -- Shamsabad -> Faizabad
+
+-- Reverse Direction (Faizabad to Saddar Terminal)
+INSERT INTO [CheckPointGraph] (from_checkpoint_id, to_checkpoint_id, [order])
+VALUES
+(10, 9, 1),  -- Faizabad -> Shamsabad
+(9, 8, 2),   -- Shamsabad -> 6th Road
+(8, 7, 3),   -- 6th Road -> Rehmanabad
+(7, 6, 4),   -- Rehmanabad -> Chandani Chowk
+(6, 5, 5),   -- Chandani Chowk -> Waris Khan
+(5, 4, 6),   -- Waris Khan -> Committee Chowk
+(4, 3, 7),   -- Committee Chowk -> Liaqat National Bagh
+(3, 2, 8),   -- Liaqat National Bagh -> Marrir Chowk
+(2, 1, 9);   -- Marrir Chowk -> Saddar Terminal
+
+
+
+
+
+
+------------------------------------------------------------------------Legal Vehicles
+-- ============================================
+-- TOYOTA COROLLA (11th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('BSG687', 'Toyota', 'Corolla', '11th Generation', NULL, 'Black'),
+('ABZ394', 'Toyota', 'Corolla', '11th Generation', NULL, 'White'),
+('ALI708', 'Toyota', 'Corolla', '11th Generation', NULL, 'White');
+
+-- ============================================
+-- TOYOTA COROLLA (10th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('BUE687', 'Toyota', 'Corolla', '10th Generation', NULL, 'Silver'),
+('SH-330', 'Toyota', 'Corolla', '10th Generation', NULL, 'Black');
+
+-- ============================================
+-- TOYOTA COROLLA (9th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('NK-171', 'Toyota', 'Corolla', '9th Generation', NULL, 'Black'),
+('AHK093', 'Toyota', 'Corolla', '9th Generation', NULL, 'Black');
+
+-- ============================================
+-- HONDA CITY (5th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('AAB809', 'Honda', 'City', '5th Generation', NULL, 'White'),
+('WC-858', 'Honda', 'City', '5th Generation', NULL, 'Grey'),
+('UC-478', 'Honda', 'City', '5th Generation', NULL, 'White');
+
+-- ============================================
+-- HONDA CITY (6th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('BAG920', 'Honda', 'City', '6th Generation', NULL, 'White'),
+('BAE363', 'Honda', 'City', '6th Generation', NULL, 'White'),
+('BFF514', 'Honda', 'City', '6th Generation', NULL, 'White');
+
+-- ============================================
+-- HONDA CIVIC (10th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('AVGI20', 'Honda', 'Civic', '10th Generation', NULL, 'Black'),
+('CAXS966', 'Honda', 'Civic', '10th Generation', NULL, 'White');
+
+-- ============================================
+-- SUZUKI ALTO (2nd Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('BHF163', 'Suzuki', 'Alto', '2nd Generation', NULL, 'Silver');
+
+-- ============================================
+-- SUZUKI ALTO (8th Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('BKA-823', 'Suzuki', 'Alto', '8th Generation', NULL, 'White'),
+('ASZ-085', 'Suzuki', 'Alto', '8th Generation', NULL, 'White'),
+('BAE685', 'Suzuki', 'Alto', '8th Generation', NULL, 'White'),
+('BDK798', 'Suzuki', 'Alto', '8th Generation', NULL, 'White'),
+('AJR711', 'Suzuki', 'Alto', '8th Generation', NULL, 'Silver');
+
+-- ============================================
+-- SUZUKI CULTUS (3rd Generation)
+-- ============================================
+INSERT INTO [Legal_Vehicles] (no_plate, company, model, generation, car_year, color)
+VALUES
+('SAVZ928', 'Suzuki', 'Cultus', '3rd Generation', NULL, 'White'),
+('ANE317', 'Suzuki', 'Cultus', '3rd Generation', NULL, 'White');
